@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+
+<form id="new-form" action="/park" method="POST">
+  <label>Park</label>
+  <input type="text" name="park">
+  <label>Year Visited:</label>
+  <input type="text" name="releaseYear">
+  <label>Park Rating</label>
+  <select name="parkRating">
+    <option value="Good">G</option>
+    <option value="Decent">PG</option>
+    <option value="Bad">PG-13</option>
+    <option value="Don't Visit">R</option>
+  </select>
+  <label>Now Showing:</label>
+  <input type="checkbox" name="Open" checked>
+  <input type="submit" value="Add Park">
+</form>
+
+<%- include('../partials/footer') %>
