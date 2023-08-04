@@ -1,17 +1,17 @@
-const Park = require('../models/park');
+const Bear = require('../models/bear');
 
 module.exports = {
   create,
-  delete: deleteReview
+  delete: deleteBear
 };
 
-async function deleteReview(req, res) {
+async function deleteBear(req, res) {
   
-  const park = await park.findOne({ 'reviews._id': req.params.id, 'reviews.user': req.user._id });
+  const park = await park.findOne({ 'bear._id': req.params.id, 'bear.user': req.user._id });
   
   if (!park) return res.redirect('/park');
   
-  park.reviews.remove(req.params.id);
+  park.bear.remove(req.params.id);
   
   await park.save();
   
@@ -25,10 +25,10 @@ async function create(req, res) {
   req.body.userName = req.user.name;
   req.body.userAvatar = req.user.avatar;
   
-  park.reviews.push(req.body);
+  park.bear.push(req.body);
   try {
     
-    await park.save();
+    await Bear.save();
   } catch (err) {
     console.log(err);
   }

@@ -9,12 +9,12 @@
     </tr>
   </thead>
   <tbody>
-    <% park.forEach(function(m) { %>
-      <tr>
-        <td><%= m.park%></td>
-        <td><%= m.YearVisited %></td>
-        <td><a href="/park/<%= m._id %>">DETAILS</a></td>
-      </tr>
+    <% parks.forEach(function(p) { %>
+      <li>
+        <form action="/parks/<%= p.id %>?_method=DELETE"
+          class="delete-form" method="POST">
+          <button type="submit">X</button>
+        </form>
       <% }); %>
     </tbody>
   </table>

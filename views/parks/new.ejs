@@ -1,10 +1,10 @@
 <%- include('../partials/header') %>
 
-<form id="new-form" action="/park" method="POST">
+<form id="new-form" action="/parks" method="POST">
   <label>Park</label>
-  <input type="text" name="park">
+  <input type="text" name="name">
   <label>Year Visited:</label>
-  <input type="text" name="releaseYear">
+  <input type="text" name="yearVisited">
   <label>Park Rating</label>
   <select name="parkRating">
     <option value="Good">G</option>
@@ -12,8 +12,8 @@
     <option value="Bad">PG-13</option>
     <option value="Don't Visit">R</option>
   </select>
-  <label>Is Park Open?:</label>
-  <input type="checkbox" name="Open" checked>
+  <!-- <label>Is Park Open?:</label>
+  <input type="checkbox" name="Open" checked> -->
   <input type="submit" value="Add Park">
 </form>
 

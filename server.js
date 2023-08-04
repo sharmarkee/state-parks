@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var methodOverride = require('method-override');
 
 require('dotenv').config();
 // connect to the database with AFTER the config vars are processed
@@ -12,6 +13,8 @@ require('./config/passport');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var bearRouter = require('./routes/bears');
+var reviewRouter = require('./routes/reviews');
 var session = require('express-session');
 var passport = require('passport');
 
@@ -33,6 +36,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method')); 
 
 app.use(session({
   secret: process.env.SECRET,
@@ -50,7 +54,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', indexRouter);
-app.use('/park', parkRouter);
+app.use('/parks', parkRouter);
 // Mount these routers to root because not all 
 // paths for a related/nested resource begin the same
 app.use('/', reviewsRouter);

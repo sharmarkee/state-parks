@@ -5,17 +5,23 @@ module.exports = {
   index,
   show,
   new: newPark,
-  create
+  create,
+  delete: deletePark,
 };
 
+function deletePark(req, res) {
+  Park.deleteOne(req.params.id);
+  res.redirect('/park');
+}
+
 async function index(req, res) {
-  const park = await park.find({});
+  const parks = await Park.find({});
   res.render('parks/index', { title: 'All Parks', parks });
 }
 
 async function show(req, res) {
 
-  const park = await park.findById(req.params.id).populate('trail');
+  const park = await Park.findById(req.params.id)
   
 
 }
@@ -23,12 +29,12 @@ async function show(req, res) {
 function newPark(req, res) {
    
 
-  res.render('park/new', { title: 'Add Park', errorMsg: '' });
+  res.render('parks/new', { title: 'Add Park', errorMsg: '' });
 }
 
 async function create(req, res) {
   
-  req.body.nowShowing = !!req.body.nowShowing;
+  req.body.openParkpenPark = !!req.body.openPark;
   
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key];
@@ -37,10 +43,10 @@ async function create(req, res) {
     
     const park = await Park.create(req.body);
   
-    res.redirect(`/park/${park._id}`);
+    res.redirect(`/parks/${park._id}`);
   } catch (err) {
     
     console.log(err);
-    res.render('park/new', { errorMsg: err.message });
+    res.render('parks/new', { errorMsg: err.message });
   }
 }
