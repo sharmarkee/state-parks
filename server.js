@@ -15,12 +15,10 @@ var usersRouter = require('./routes/users');
 var session = require('express-session');
 var passport = require('passport');
 
-require('dotenv').config();
-// connect to the database with AFTER the config vars are processed
 
 
 
-const parkRouter = require('./routes/movies');
+const parkRouter = require('./routes/parks');
 const reviewsRouter = require('./routes/reviews')
 
 
@@ -52,7 +50,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', indexRouter);
-app.use('/movies', parkRouter);
+app.use('/park', parkRouter);
 // Mount these routers to root because not all 
 // paths for a related/nested resource begin the same
 app.use('/', reviewsRouter);
