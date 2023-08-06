@@ -201,3 +201,8 @@ li {
   background-color: green;
   margin: block;
 }
+
+#intro{
+  margin-top: auto;
+  display: flexbox;
+}
