@@ -12,7 +12,7 @@ router.get('/new', parkCtrl.new);
 router.get('/:id', parkCtrl.show);
 router.post('/', ensureLoggedIn, parkCtrl.create);
 
-router.post('/', parkCtrl.create);
+// router.post('/', parkCtrl.create);
 router.delete('/:id', parkCtrl.delete);
 
 	
