@@ -1,6 +1,7 @@
 * {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: green;
 }
 
 a {
@@ -194,4 +195,9 @@ hr {
 	
 li {
   list-style: none;
+}
+
+#add-bears-form {
+  background-color: green;
+  margin: block;
 }

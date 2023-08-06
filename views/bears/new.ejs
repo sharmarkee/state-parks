@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+
+
+<section id="badge-container">
+  <% bears.forEach(function(p) { %>
+    <article class="badge"><%= p.name %></article>
+  <% }) %>
+</section>
+
+<form id="add-bears-form" action="/bears" method="POST">
+  <label>Name:</label>
+  <input type="text" name="name">
+  <label>Sighting:</label>
+  <input type="date" name="sighting">
+  <input type="submit" value="Add Bear">
+</form>
+
+<%- include('../partials/footer') %>

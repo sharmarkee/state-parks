@@ -58,6 +58,7 @@ app.use('/parks', parkRouter);
 // Mount these routers to root because not all 
 // paths for a related/nested resource begin the same
 app.use('/', reviewsRouter);
+app.use('/bears', bearRouter);
 
 
 // catch 404 and forward to error handler

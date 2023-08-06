@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+<h2>Home Page</h2>
+<section id="badge-container"></section>
+<% bears.forEach(function(p) { %>
+  
+  <article class="badge"><%= p.name %></article>
+  <form action="/bears/<%= p._id %>?_method=DELETE"
+    class="delete-form" method="POST">
+    <button type="submit">X</button>
+  </form>
+<% }) %>
+</section>
+
+
+<%- include('../partials/footer') %>

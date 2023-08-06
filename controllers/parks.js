@@ -9,9 +9,14 @@ module.exports = {
   delete: deletePark,
 };
 
-function deletePark(req, res) {
-  Park.deleteOne(req.params.id);
-  res.redirect('/park');
+async function deletePark(req, res) {
+  try {
+const  deleteIt =  await Park.deleteOne({_id:req.params.id});
+  console.log(deleteIt);
+  res.redirect('/parks');}
+  catch(err){
+    console.log(err);
+  }
 }
 
 async function index(req, res) {
@@ -34,16 +39,17 @@ function newPark(req, res) {
 
 async function create(req, res) {
   
-  req.body.openParkpenPark = !!req.body.openPark;
+  req.body.newPark = !!req.body.newPark;
   
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key];
   }
+    console.log(req.body);
   try {
     
     const park = await Park.create(req.body);
-  
-    res.redirect(`/parks/${park._id}`);
+       console.log(park);
+    res.redirect('/parks/');
   } catch (err) {
     
     console.log(err);

@@ -35,7 +35,7 @@ const parkSchema = new Schema({
   },
   parkRating: {
     type: String,
-    enum: ['Good', 'Decent', 'Bad', 'Dont Visit']
+    enum: ['Good', 'Decent', 'Bad', 'Dont Visit', 'Excellent']
   }
   
 }, {

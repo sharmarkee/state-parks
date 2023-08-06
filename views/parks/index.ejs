@@ -3,15 +3,16 @@
 <table id="list">
   <thead>
     <tr>
-      <th>Park</th>
-      <th>Year<br>Visited</th>
-      <th></th>
+      <!-- <th>Park</th> -->
+      <!-- <th>Year<br>Visited</th>
+      <th></th> -->
     </tr>
   </thead>
   <tbody>
     <% parks.forEach(function(p) { %>
       <li>
-        <form action="/parks/<%= p.id %>?_method=DELETE"
+        <p><%=p.name %></p>
+        <form action="/parks/<%= p._id %>?_method=DELETE"
           class="delete-form" method="POST">
           <button type="submit">X</button>
         </form>
