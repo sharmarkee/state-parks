@@ -4,6 +4,7 @@ This is a apps that allow them to write reviews about State Parks in MN that the
 
 # Screenshot
 
+![Screen Shot 2023-08-06 at 5 20 40 PM](https://github.com/sharmarkee/state-parks/assets/96698799/eaacde96-ce6b-4782-830d-6b96a02f66e8)
 
 # Technologies Used
 
